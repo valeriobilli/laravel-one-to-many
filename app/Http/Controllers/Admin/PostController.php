@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use App\Models\Type;
 
 class PostController extends Controller
 {
@@ -28,7 +29,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view("admin.posts.create");
+        $types = Type::all();
+
+        return view("admin.posts.create", compact("types"));
     }
 
     /**
@@ -67,7 +70,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view("admin.posts.edit", compact("post"));
+        $types = Type::all();
+
+        return view("admin.posts.edit", compact("post", "types"));
     }
 
     /**
@@ -84,11 +89,10 @@ class PostController extends Controller
         $post->title = $data['title'];
         $post->content = $data['content'];
         $post->image = $data['image'];
-      
+        
         $post->update();  
         
         return to_route("admin.posts.show", $post);
-   
     }
 
     /**

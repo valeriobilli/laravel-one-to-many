@@ -27,6 +27,7 @@ class StorePostRequest extends FormRequest
             "title" => "required|min:3|max:100",
             "content" => "max:65435",
             "image" => "url|max:255",
+            "type_id" => "exists:types,id",
         ];
     }
 

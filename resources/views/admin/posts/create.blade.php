@@ -28,6 +28,14 @@
             <label for="image" class="mt-3">Indirizzo immagine</label>
             <input type="text" name="image" id="image" class="form-control">
 
+            <label for="type_id" class="mt-3">Tipo:</label>
+            <select name="type_id" id="type_id" class="form-control">
+                <option value="" selected disabled>Seleziona il tipo</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                @endforeach
+            </select>
+
             <input type="submit" class="form-control btn btn-primary mt-5" value="Crea nuovo post">
 
         </form>
