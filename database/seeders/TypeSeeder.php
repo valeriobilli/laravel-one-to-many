@@ -18,7 +18,7 @@ class TypeSeeder extends Seeder
     {
         for ($i=0; $i < 5 ; $i++) { 
             $post = new Type();
-            $post->name = $faker->sentence(1);
+            $post->name = $faker->word(1);
             $post->save();
         }
     }

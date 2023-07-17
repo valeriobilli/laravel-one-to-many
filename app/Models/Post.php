@@ -14,4 +14,10 @@ class Post extends Model
         "content",
         "image",
     ];
+
+    public function type() {
+        return $this->belongsTo(Type::class);
+    }
 }
+
+
