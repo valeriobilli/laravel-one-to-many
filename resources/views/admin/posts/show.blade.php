@@ -16,6 +16,7 @@
         <div class="col-12">
             <div>Post n° {{$post->id}}</div>
             <h1>{{$post->title}}</h1>
+            <h3>Tipo: <span class="badge text-bg-primary">{{ $post->type->name }}</span></h3>
             <p class="card-text">{{ $post->content }}</p>
             <img class="card-img-top" src="{{ $post->image }}" alt="{{ $post->title }}">
         </div>
